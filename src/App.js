@@ -4,14 +4,18 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import NoteState from './Context/notes/NoteState';
+import Alert from './components/Alert';
 
 function App() {
+
+
   return (
     <>
 
       <NoteState>
         <Router>
           <Navbar />
+          <Alert message="This is the home page of react app of iNotebook"/>
           <div className="container">
             <Routes>
               <Route exact path="/about" element={<About />} />
