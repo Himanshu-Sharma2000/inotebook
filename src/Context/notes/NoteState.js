@@ -35,19 +35,9 @@ const NoteState = (props) => {
       
       body: JSON.stringify({title,description,tag}),
     });
-  
 
-    console.log("Adding a note");
-    const note = {
-      "_id": "649kfdbfffer8660c95d11dde2",
-      "user": "6494fd36486655c95d11dddb",
-      "title": title,
-      "description": description,
-      "tag": tag,
-      "date": "2023-06-23T02:04:47.335Z",
-      "__v": 0
-    };
-    setNotes(notes.concat(note))
+  const note =await response.json();
+   setNotes(notes.concat(note))
 
   }
  
@@ -64,10 +54,10 @@ const NoteState = (props) => {
 
     });
    const json= response.json();
-   console.log(json);
+  //  console.log(json);
 
 
-    console.log("deleting the note with " + id);
+  //   console.log("deleting the note with " + id);
     const newNotes = notes.filter((note) => { return note._id !== id })
     setNotes(newNotes)
   }
@@ -78,7 +68,7 @@ const NoteState = (props) => {
 
     //API call
     const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
          "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ5NGZkMzY0ODY2NTVjOTVkMTFkZGRiIn0sImlhdCI6MTY4NzgxMTc5MX0.S6aKjGPXeBuBa99UwDbiF79etqhRFLNKKUj5gjzeOio"
@@ -86,19 +76,23 @@ const NoteState = (props) => {
       
       body: JSON.stringify({title,description,tag}),
     });
-   const json= response.json();
+   const json= await response.json();
+   console.log(json);
 
-
+   let newNotes= JSON.parse(JSON.stringify(notes))
     //Logic to edit in client
-    for (let index = 0; index < notes.length; index++) {
-      const element = notes[index];
+    for (let index = 0; index <  newNotes.length; index++) {
+      const element =  newNotes[index];
       if(element._id ===id)
       {
-        element.title=title;
-        element.description=description;
-        element.tag=tag;
-      }
+        newNotes[index].title=title;
+        newNotes[index].description=description;
+        newNotes[index].tag=tag;
+       break; 
     }
+    
+    }
+    setNotes(newNotes);
 
   }
 
