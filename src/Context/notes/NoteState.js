@@ -53,7 +53,7 @@ const NoteState = (props) => {
       }
 
     });
-   const json= response.json();
+   const json= await response.json();
   //  console.log(json);
 
 
