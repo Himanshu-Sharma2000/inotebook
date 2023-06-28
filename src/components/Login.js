@@ -1,7 +1,7 @@
 import React ,{useState}from 'react'
 import {  useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = (props) => {
 
   let  history =useNavigate();
 
@@ -14,7 +14,6 @@ const Login = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-    
       },
       
       body: JSON.stringify({email :cread.email, password: cread.password}),
@@ -26,11 +25,11 @@ const Login = () => {
     if(json.success){
       //save the auth token and redirect
       localStorage.setItem('token',json.authtoken);
+      props.showAlert("Logged in Successfully", "success");
       history("/");
-
     }
     else{
-      alert("Invalid Creadentials");
+      props.showAlert("Invalid Creadentials", "danger");
     }
   }
   
@@ -42,9 +41,11 @@ const Login = () => {
 
 
   return (
-    <div>
+    <div className='mt-3'>
+      <h1 className='text-center mb-3'style={{color:"blue"}}>Welcome to iNotebook</h1>
+      <h2>Login to continue with iNotebook</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
+        <div className="mb-3 mt-3">
           <label htmlFor="email" className="form-label">Email address</label>
           <input type="email" className="form-control" id="email" value={cread.title} onChange={onChange} name="email" aria-describedby="emailHelp" />
           <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
