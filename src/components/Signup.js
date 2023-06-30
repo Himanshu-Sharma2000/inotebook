@@ -24,6 +24,7 @@ const Signup = (props) => {
     const json = await response.json();
     console.log(json);
 
+   if(cread.cpassword === password){
     if (json.success) {
       //save the auth token and redirect
       localStorage.setItem('token', json.authtoken);
@@ -34,6 +35,13 @@ const Signup = (props) => {
       props.showAlert("Invalid Details", "danger");
     }
 
+   }
+    else{
+    props.showAlert("Please Enter Same Both on Confirm Password ","Danger")
+
+   }
+
+    
 
   }
 
