@@ -4,6 +4,8 @@ import React from 'react'
 const About = () => {
   return (
     <>
+        <span className=''style={{color:"#05053e", fontFamily:"Lobster, cursive", fontSize:"80px",marginBottom:"-10px" , marginTop:"-70px"}}>iNotebook - </span>
+        <span className='mb-4' style={{ color: "#05053e" ,fontSize:"50px",fontFamily: "'Edu SA Beginner', cursive"}}>Your Privacy , Our Priority</span>
       <div className="d-flex flex-column justify-content-evenly my-2 " style={{ fontFamily: "'Edu SA Beginner', cursive" }}>
         <div className=" d-flex container mx-1 text-center mb-3">
           <img src="https://d383au3bye3rv1.cloudfront.net/static/images/optimized/feature_icon.png" className="img-thumbnail ms-3 rounded-circle border border-info" alt="..." width="100" height="100" />
