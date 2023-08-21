@@ -1,38 +1,17 @@
-.App {
-  text-align: center;
-}
+.main{
+    height: 100vh;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
+.main::before{
+    content: "";
+        background: url(https://img.freepik.com/premium-vector/science-technology-icon-background-landing-page-concept-vector-illustration_3482-4666.jpg?size=626&ext=jpg&ga=GA1.2.637354507.1690955929&semt=ais) no-repeat center center/cover;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 106%;
+    filter: invert(20%);
+    z-index: -1;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

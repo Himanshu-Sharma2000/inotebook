@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-
+      <div className='main'>
       <NoteState>
         <Router>
           <Navbar />
@@ -40,6 +40,7 @@ function App() {
           </div>
         </Router>
       </NoteState>
+      </div>
     </>
   );
 }
